@@ -96,7 +96,7 @@ def main():
         raise ValueError('smiles_file must have same number of lines as target_file')
 
     # Create graph representation of dataset
-    print("Parsing SMILES strings...", flush=True)
+    print("Parsing SMILES strings...", flush=True, end="")
     tic = time.time()
     smiles_parser = SMILESParser(config=args.config_file)
     graphs = smiles_parser.parse_smiles(smiles_array=smiles_array, targets_array=targets_array)
@@ -110,7 +110,7 @@ def main():
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
-    print("Writing graph data to TFRecords file...", flush=True)
+    print("Writing graph data to TFRecords file...", flush=True, end='')
     tic = time.time()
     write_graphs_to_tfrecord(graphs, os.path.join(args.output_file))
     toc = time.time()
