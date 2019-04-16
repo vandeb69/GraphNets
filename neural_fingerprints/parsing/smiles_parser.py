@@ -56,7 +56,7 @@ class SMILESParser(object):
                 raise ValueError("smiles_array and ids_array must have the same number of elements.")
         # Otherwise, assign consecutive integer IDs to the SMILES strings
         else:
-            ids_array = np.arange(n_smiles)
+            ids_array = np.arange(n_smiles, dtype=np.int64)
 
         # Initialize empty list of parsed molecular graphs
         graphs = []
